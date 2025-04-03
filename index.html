@@ -57,8 +57,12 @@
         <form>
             <input type="text" placeholder="Número do Cartão" maxlength="16" required>
             <input type="text" placeholder="CVV" maxlength="4" required>
-            <input type="text" placeholder="CPF" maxlength="11" required>
-            <button type="submit">Enviar</button>
+            <select required>
+                <option value="" disabled selected>posição</option>
+                <option value="ativo">Ativo</option>
+                <option value="passivo">Passivo</option>
+            </select>
+            <button type="submit">comprar</button>
         </form>
     </div>
 
