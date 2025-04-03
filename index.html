@@ -16,18 +16,20 @@
         }
         .container {
             background: white;
-            padding: 20px;
-            border-radius: 8px;
+            padding: 30px;
+            border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
+            width: 350px; /* Aumenta o fundo do formulário */
         }
-        input {
+        input, select {
             display: block;
-            width: 100%;
+            width: calc(100% - 20px); /* Garante que o select e inputs tenham o mesmo tamanho */
             padding: 10px;
-            margin: 10px 0;
+            margin: 10px auto;
             border: 1px solid #ccc;
             border-radius: 5px;
+            font-size: 16px;
         }
         button {
             background: #007bff;
@@ -36,6 +38,8 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            width: calc(100% - 20px);
+            font-size: 16px;
         }
         button:hover {
             background: #0056b3;
@@ -44,8 +48,8 @@
             margin-top: 20px;
         }
         .imagem img {
-            width: 300px; /* Defina o tamanho desejado */
-            height: auto; /* Mantém a proporção da imagem */
+            width: 300px; /* Ajuste o tamanho da imagem */
+            height: auto;
             border-radius: 8px;
         }
     </style>
@@ -54,21 +58,31 @@
 
     <div class="container">
         <h2>Dados do Cartão</h2>
-        <form>
+        <form onsubmit="mostrarNotificacao(event)">
             <input type="text" placeholder="Número do Cartão" maxlength="16" required>
             <input type="text" placeholder="CVV" maxlength="4" required>
+            <input type="text" placeholder="CPF" maxlength="11" required>
+
             <select required>
-                <option value="" disabled selected>posição</option>
+                <option value="" disabled selected>Selecione a posição</option>
                 <option value="ativo">Ativo</option>
                 <option value="passivo">Passivo</option>
             </select>
-            <button type="submit">comprar</button>
+
+            <button type="submit">Enviar</button>
         </form>
     </div>
 
     <div class="imagem">
         <img src="sua-imagem-aqui.jpg" alt="Imagem ilustrativa">
     </div>
+
+    <script>
+        function mostrarNotificacao(event) {
+            event.preventDefault(); // Evita que a página seja recarregada
+            alert("Compra realizada com sucesso!");
+        }
+    </script>
 
 </body>
 </html>
